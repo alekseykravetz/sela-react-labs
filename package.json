@@ -1,0 +1,34 @@
+{
+  "name": "sela-react-labs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "lab01": "nodemon server.js lab:01-hello-world",
+    "lab02": "nodemon server.js lab:02-jsx-css-styling",
+    "lab03": "nodemon server.js lab:03-functional-component",
+    "lab04": "nodemon server.js lab:04-data-flow-props",
+    "lab05": "nodemon server.js lab:05-data-flow-callback",
+    "lab06": "nodemon server.js lab:06-state",
+    "lab07": "nodemon server.js lab:07-lifecycle",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alekseykravetz/sela-react-labs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alekseykravetz/sela-react-labs/issues"
+  },
+  "homepage": "https://github.com/alekseykravetz/sela-react-labs#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
