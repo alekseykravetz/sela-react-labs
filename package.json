@@ -12,6 +12,8 @@
     "lab05": "nodemon server.js lab:05-data-flow-callback",
     "lab06": "nodemon server.js lab:06-state",
     "lab07": "nodemon server.js lab:07-lifecycle",
+    "lab08": "nodemon server.js lab:08-tic-tac-toe",
+    "lab09": "nodemon server.js lab:09-tic-tac-toe-hooks",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
