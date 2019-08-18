@@ -13,7 +13,9 @@
     "lab06": "nodemon server.js lab:06-state",
     "lab07": "nodemon server.js lab:07-lifecycle",
     "lab08": "nodemon server.js lab:08-tic-tac-toe",
-    "lab09": "nodemon server.js lab:09-tic-tac-toe-hooks",
+    "lab09": "nodemon server.js lab:09-pure-component",
+    "lab09fixed": "nodemon server.js lab:09-pure-component-fixed",
+    "lab10": "nodemon server.js lab:10-tic-tac-toe-hooks",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -35,8 +35,7 @@ class Game extends React.Component {
 		};
 	}
 
-
-	handleClick(i) {
+	handleClick = i => {
 		// eslint-disable-next-line react/no-access-state-in-setstate
 		const history = this.state.history.slice(0, this.state.stepNumber + 1);
 		const current = history[history.length - 1];
@@ -66,6 +65,8 @@ class Game extends React.Component {
 	}
 
 	render() {
+		console.log('Game rendering');
+
 		const history = this.state.history;
 		const current = history[this.state.stepNumber];
 		const winner = calculateWinner(current.squares);
@@ -109,16 +110,18 @@ class Game extends React.Component {
 
 class Board extends React.Component {
 	renderSquare(i) {
-		return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
+		return <Square key={i} squareIndex={i} value={this.props.squares[i]} onClick={this.props.onClick} />;
 	}
 
 	render() {
+		console.log('Board rendering');
+
 		return (
 			<div>
 				<div className="status">{status}</div>
 
 				{[0, 3, 6].map(rowVal => (
-					<div className="board-row">
+					<div key={rowVal} className="board-row">
 						{[0, 1, 2].map(columnVal => this.renderSquare(rowVal + columnVal))}
 					</div>
 				))}
@@ -128,13 +131,17 @@ class Board extends React.Component {
 	}
 }
 
-const Square = (props) => {
-	return (
-		<button type="button" className="square" onClick={props.onClick}>
-			{props.value}
-		</button>
-	);
-};
+class Square extends React.Component {
+	render() {
+		console.log(`Square #${this.props.squareIndex} rendering`);
+
+		return (
+			<button type="button" className="square" onClick={() => this.props.onClick(this.props.squareIndex)}>
+				{this.props.value}
+			</button>
+		);
+	};
+}
 
 
 ReactDOM.render(<Game />, document.querySelector('#root'));
