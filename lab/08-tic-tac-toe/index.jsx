@@ -110,7 +110,6 @@ class Board extends React.Component {
 
 		return (
 			<div>
-				<div className="status">{status}</div>
 
 				{[0, 3, 6].map(rowVal => (
 					<div key={rowVal} className="board-row">

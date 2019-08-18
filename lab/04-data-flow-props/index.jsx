@@ -9,7 +9,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div style={{ marginTop: 24, }}>
-				<Title title="This thex rendered by Title Component" />
+				<Title title="This text rendered by Title Component" />
 			</div>
 		)
 	}

@@ -2,9 +2,10 @@
 
 class ButtonComponent extends React.Component {
 	render() {
-		const buttonData = 'hello from Button component';
+		const buttonData = new Date();
 		return (
-			<div style={{border: 'solid 2px black'}} onClick={() => this.props.onButtonClicked(buttonData)}>{this.props.text}</div>
+			<div style={{border: 'solid 2px black'}} onClick={() => this.props.onButtonClicked(buttonData)}>
+			{this.props.text}</div>
 		);
 	}
 }
@@ -12,12 +13,11 @@ class ButtonComponent extends React.Component {
 class ParentComponent extends React.Component {
 	render() {
 		return (
-			<ButtonComponent text="Click Me !!!" onButtonClicked={(dataFromButton) => alert('Button clicked, data: ' + dataFromButton)} />
+			<ButtonComponent text="Click Me !!!" onButtonClicked={(dataFromButton) => 
+				alert('Button clicked, at : ' + dataFromButton)} />
 		)
 	}
 }
 
 
 ReactDOM.render(<ParentComponent />, document.querySelector('#root'));
-
-

@@ -1,31 +1,35 @@
 
 
-class Clock extends React.Component {
-	
+class Header extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { 
-			date: new Date(),
+		this.state = {
+			title: 'Hello from state example',
 			counter: 0,
 		};
 	}
 
-	// OR 
-	// state = { date: new Date() };
+	increament = () => {
+		this.setState(state => {
+			console.log(state);
+			return {
+				counter: state.counter + 1
+			}
+		});
+	};
 
 	render() {
 		return (
 			<div>
-				<h1>Hello, world!</h1>
-				<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-				
-				<button onClick={() => this.setState({counter: this.state.counter + 1})}>Add 1</button>
+				<h1>{this.state.title}</h1>
+
+				{/* <button onClick={() => this.setState({counter: this.state.counter + 1})}>Add Count</button> */}
+				<button onClick={this.increament}>Add Count</button>
 				<div>Click Counter: {this.state.counter}</div>
 			</div>
 		);
 	}
 }
 
-
-ReactDOM.render(<Clock />, document.querySelector('#root'));
+ReactDOM.render(<Header />, document.querySelector('#root'));
 
