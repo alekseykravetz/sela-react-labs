@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "lab01": "nodemon server.js lab:01-hello-world",
+    "lab011": "nodemon server.js lab:01-jsx-array",
     "lab02": "nodemon server.js lab:02-jsx-css-styling",
     "lab03": "nodemon server.js lab:03-functional-component",
     "lab04": "nodemon server.js lab:04-data-flow-props",
