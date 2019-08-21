@@ -7,18 +7,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const lab = process.argv.find(arg => arg.toLowerCase().includes('lab:'));
-let labToRun = '01-hello-world';
-if (lab){
-    labToRun = lab.replace('lab:', '');
-}
+const folderToServe = process.argv.slice(-1)[0];
+console.log('folderToServe', folderToServe);
 
-
-console.log('labToRun', labToRun);
-app.use('/', express.static(`lab/${labToRun}`));
-
-// app.get('/', (req, res) => res.send('Server Online'));
+app.use('/', express.static(folderToServe));
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log(`dx server - port: ${port} - ${process.env.NODE_ENV || 'local'} environment`));
+app.listen(port, () => console.log(`server - port: ${port}`));
