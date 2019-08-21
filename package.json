@@ -20,6 +20,7 @@
     "lab1": "nodemon server.js lab/person",
     "lab2": "nodemon server.js lab/person-list",
     "lab3": "nodemon server.js lab/person-list-with-props",
+    "lab4": "nodemon server.js lab/master-details",
 
     "example1": "nodemon server.js tic-tac-toe-example/tic-tac-toe",
     "example2": "nodemon server.js tic-tac-toe-example/tic-tac-toe-hooks",
