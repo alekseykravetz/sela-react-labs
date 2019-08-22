@@ -72,30 +72,22 @@ class Game extends React.Component {
 		const winner = calculateWinner(current.squares);
 		const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
 
-		const moves = history.map((step, move) => {
-			const desc = move ? `Go to move #${move}` : 'Go to game start';
-			return (
-				<li key={move}>
-					<button
-						className={move === this.state.stepNumber ? 'selected' : ''}
-						onClick={() => this.jumpTo(move)}>
-						{desc}
-					</button>
-				</li>
-			);
-		});
-
 		return (
-			<div className="game">
-				<div className="game-board">
-					<Board
-						squares={current.squares}
-						onClick={i => this.handleClick(i)}
-					/>
-				</div>
-				<div className="game-info">
+			<div style={styles.game}>
+				<Board squares={current.squares} onClick={i => this.handleClick(i)} />
+				<div style={styles.gameInfo}>
 					<div>{status}</div>
-					<ol>{moves}</ol>
+					<ol>
+						{history.map((step, move) => (
+							<li key={move}>
+								<button
+									style={move === this.state.stepNumber ? styles.selectedMove : {}}
+									onClick={() => this.jumpTo(move)}>
+									{move ? `Go to move #${move}` : 'Go to game start'}
+								</button>
+							</li>
+						))}
+					</ol>
 				</div>
 			</div>
 		);
@@ -113,10 +105,10 @@ class Board extends React.Component {
 		console.log('Board rendering');
 
 		return (
-			<div>
+			<div style={styles.board}>
 
 				{[0, 3, 6].map(rowVal => (
-					<div key={rowVal} className="board-row">
+					<div key={rowVal} style={styles.boarRrow}>
 						{[0, 1, 2].map(columnVal => this.renderSquare(rowVal + columnVal))}
 					</div>
 				))}
@@ -131,11 +123,36 @@ class Square extends React.Component {
 		console.log(`Square #${this.props.squareIndex} rendering`);
 
 		return (
-			<button type="button" className="square" onClick={() => this.props.onClick(this.props.squareIndex)}>
+			<button type="button" style={styles.boardSquare} onClick={() => this.props.onClick(this.props.squareIndex)}>
 				{this.props.value}
 			</button>
 		);
 	};
+}
+
+const styles = {
+	game: { display: 'flex', flexDirection: 'column' },
+	gameInfo: { marginTop: 20 },
+
+	board: { padding: 5, border: '1px solid #e4e4e4' },
+
+	boarRrow: { display: 'flex', flexDirection: 'row' },
+
+	boardSquare: {
+		width: 125,
+		height: 125,
+
+		border: '1px solid #e4e4e4',
+
+		color: 'black',
+		fontSize: '5em',
+		fontWeight: '100',
+		textAlign: 'center',
+		padding: 20,
+	},
+
+	selectedMove: { backgroundColor: 'greenyellow' },
+
 }
 
 
